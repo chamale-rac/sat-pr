@@ -97,6 +97,8 @@ After that we check if all the clause in the AND are true, so we can determine i
 
 On the other hand, we found the Davis-Putnam-Logemann-Loveland [DPLL](https://en.wikipedia.org/wiki/DPLL_algorithm) algorithm. For this solution we will receive again a 'fórmula booleana en forma de clausula'. And again we need report if that expression is or not satisfiable, but also return the partial interpretation that satisfies the expression.
 
+The implementation is based on the pseudocode from the PDF instructions, but if you want to deep in it you can visit [this](https://math.stackexchange.com/questions/96080/in-satisfiability-what-is-the-difference-between-the-empty-clause-and-the-empty/96097#96097)
+
 ### Awesome!
 
 After you long journey reading what I prepare for you 🤗, you are ready to dive into the code. This is the [brute-force](./brute.py) approach, and this the [DPLL implementation](./dpll.py). 
