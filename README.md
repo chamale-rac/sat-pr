@@ -68,4 +68,5 @@ On the other hand, we found the Davis-Putnam-Logemann-Loveland [DPLL](https://en
 
 After you long journey reading what I prepare for you 🤗, you are ready to dive into the code. This is the [brute-force](./brute.py) approach, and this the [DPLL implementation](./dpll.py). 
 
-Some final advice is to remember that the *'forma clausal'* stablish that conjunction (∧) will be represented as first layer sets on the structure, while disjunction (∨) gonna be represented as the array inside each first layer sets.
+Some final advice is to remember that the *'forma clausal'* stablish that conjunction (∧) will be represented as first layer sets on the structure, while disjunction (∨) gonna be represented as the array inside each first layer sets. This are some examples:
+![image](https://github.com/chamale-rac/sat-pr/assets/63200593/86d98ae5-624b-49d2-a6f9-ba598c309682)
