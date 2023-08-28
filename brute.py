@@ -59,7 +59,7 @@ def brute_force(clauses):
 
         # 🧠 Using the built-in function all() to check if all the elements of an iterable are True. More info: https://docs.python.org/3/library/functions.html?highlight=all#all
         # 🧠 Using the built-in sets function intersection() to check if there is some value of the combination in clause.
-        if all([bool(clause.intersection(x)) for clause in clauses]):
+        if not False in [bool(clause.intersection(x)) for clause in clauses]:
             return True, x
 
     # FOURTH. If no satisfying assignment is found, return None
