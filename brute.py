@@ -3,7 +3,7 @@ def product(iterable, repeat=1):
     Cartesian product of input iterable.
 
     Args:
-        *args: iterable objects
+        iterable: an iterable to be combined in the cartesian product.
         repeat: number of repetitions of the cartesian product.
 
     Returns:
