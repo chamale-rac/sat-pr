@@ -52,7 +52,7 @@ Before we can dive in the proposed solutions exposed on this repo lets see some 
 
         Since the formula evaluates to true for this assignment, it is satisfiable.
 
-> It seems easy, ⚠️ but wait don't overestimate the situation... If needed you can found a very clearly explanation on [this site](https://davefernig.com/2018/05/07/solving-sat-in-python/). Also some funny approaches [here](https://math.stackexchange.com/questions/86210/what-is-the-3-sat-problem).
+> It seems easy, ⚠️ but wait don't overestimate the situation... if needed you can found a very clearly explanation on [this site](https://davefernig.com/2018/05/07/solving-sat-in-python/). Also very funny approaches [here](https://math.stackexchange.com/questions/86210/what-is-the-3-sat-problem).
 
 ### 🦾 Brute force
 
@@ -63,3 +63,9 @@ The **conjunctive normal form** mentioned above is also know as *'fórmula boole
 ### 👩‍💻 DPLL
 
 On the other hand, we found the Davis-Putnam-Logemann-Loveland [DPLL](https://en.wikipedia.org/wiki/DPLL_algorithm) algorithm. For this solution we will receive again a 'fórmula booleana en forma de clausula'. And again we need report if that expression is or not satisfiable, but also return the partial interpretation that satisfies the expression.
+
+### Awesome!
+
+After you long journey reading what I prepare for you 🤗, you are ready to dive into the code. This is the [brute-force](./brute.py) approach, and this the [DPLL implementation](./dpll.py). 
+
+Some final advice is to remember that the *'forma clausal'* stablish that conjunction (∧) will be represented as first layer sets on the structure, while disjunction (∨) gonna be represented as the array inside each first layer sets.
