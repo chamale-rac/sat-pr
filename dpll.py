@@ -29,23 +29,30 @@ def dpll(clauses, pa={}):
     if clauses == []:
         return True, pa
 
+    # 🧠 Use built-in any(function) to check if there is an empty clause in the formula
     # This means there is a disjunction with an empty clause, which is always False
-    if [] in clauses:
+    if any(len(c) == 0 for c in clauses):
         return False, None
 
     selected = select_literal(clauses)
 
     # FIRST. Remove the clauses that contains the selected. But also remove the occurrences of the complementary literal of selected by building CNF'
 
-    values = [(True, False), (False, True)]
-    for i in range(2):
-        # 🧠 Use subtraction to remove the literal from each clause that contains it.
-        new_clauses = [c - {(selected, values[i][0])}
-                       for c in clauses if (selected, values[i][1]) not in c]
+    # 🧠 Use subtraction to remove the literal from each clause that contains it.
+    new_clauses = [c - {(selected, False)}
+                   for c in clauses if (selected, True) not in c]
 
-        # 🧠 Using | to merge two dictionaries into a new dictionary XD.
-        _is, vals = dpll(new_clauses, pa | {selected: values[i][0]})
-        if _is:
-            return _is, vals
+    # 🧠 Using | to merge two dictionaries into a new dictionary XD.
+    _is, vals = dpll(new_clauses, pa | {selected: True})
+    if _is:
+        return _is, vals
+
+    new_clauses = [c - {(selected, True)}
+                   for c in clauses if (selected, False) not in c]
+
+    # 🧠 Using | to merge two dictionaries into a new dictionary XD.
+    _is, vals = dpll(new_clauses, pa | {selected: False})
+    if _is:
+        return _is, vals
 
     return False, None
