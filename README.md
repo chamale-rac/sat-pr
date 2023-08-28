@@ -58,7 +58,40 @@ Before we can dive in the proposed solutions exposed on this repo lets see some 
 
 The **conjunctive normal form** mentioned above is also know as *'fórmula booleana en forma de clausula'*. And is what we are intended to receive, analyze in order to return the correct asignation on the [brute force program](./brute-force/).  
 
+In the SAT problem, a formula is expressed as a conjunction of clauses.
+
 > ℹ️ You may want to explore more about CNF on [Wikipedia](https://es.wikipedia.org/wiki/Forma_normal_conjuntiva).
+
+In the SAT problem, a formula is expressed as a conjunction of clauses, and each clause is a disjunction of literals. To determine if a given assignment satisfies the entire formula, we need to check if the assignment intersects (shares at least one literal in common) with each conjunct (clause) in the formula.
+
+🛑 If why this method ([naive approach](https://www.cs.rice.edu/~vardi/comp409/lec9.pdf)) works is still diffuse here is a better explanation (highly recommended):
+
+> Imagine you have a room with a bunch of colorful toys 🧸 scattered all over the floor. Each toy represents a "literal" (a variable) in the SAT problem, and these literals can be either true or false.
+
+> Now, you have a set of special cards, and each card represents an assignment of truth values to the literals (a combination). For example, one card might say, "Make the red toy true and the blue toy false." Another card might say, "Make the yellow toy true and the green toy true."
+
+> To solve the SAT problem, you want to find a special card that makes all the toys happy, which means it satisfies the entire formula. In other words, you're looking for a card that intersects (shares at least one toy) with each group of toys.
+
+> To check if a card intersects with a group of toys, you take the card and compare it with the toys in the group. You look for any toy that appears on both the card and in the group. If you find at least one toy that they have in common, it means the card satisfies that particular group of toys.
+
+> Now, to solve the SAT problem, you need to check if there's a special card that intersects with every group of toys. If you find a card that has at least one toy in common with every group, then you've found a solution! The formula is satisfiable.
+
+> On the other hand, if you can't find any card that intersects with every group of toys, it means there's no way to make all the toys happy at the same time. The formula is unsatisfiable.
+
+> So, the notion of intersection is all about finding common elements between the special cards (assignments) and the groups of toys (conjuncts/clauses) to see if we can make all the toys happy. If we can, we have a solution. If we can't, we don't have a solution.
+
+But why @#$ intersecting means that an assignment satisfies a particular group (clause)? 
+
+Using the toys example. In the SAT problem, each group of toys represents a conjunct, which is essentially a set of literals connected by the logical OR operation. For example, let's say we have a group of toys: {red, blue, green}. This group represents the conjunct "(red OR blue OR green)".
+
+Now, when we talk about intersecting, we are checking if the assignment ( combination | special card) and the group of toys (conjunct | clause) have at least one toy in common. In other words, we are looking for a toy that appears both in the assignment and in the group.
+
+Remember that the CNF is the expression of the formula. But the combinations is the assignation of values. In other terms, we check for each clause because if we found an intersection it means that there is on of the next:
+
+1. An assignation of True to True delivering True, and because is part of an OR it will return a complete True for the clause.
+2. An assignation of False to a negation delivering a True, and because is part of an OR it will return a complete True for the clause.
+
+After that we check if all the clause in the AND are true, so we can determine if is a 'satisfiable' combination.
 
 ### 👩‍💻 DPLL
 
