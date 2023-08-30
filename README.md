@@ -2,6 +2,11 @@
 
 Exploring the boolean satisfiability problem (SAT) by brute force and DPLL algorithm
 
+🚀 Use the next command to run the program:
+```bash
+python app.py
+```
+
 ## 🧐 Understanding the problem
 
 The term "SAT" stands for *'satisfiability'*, which refers to the property of a logical formula being capable of being satisfied or made true. The Boolean satisfiability problem, often abbreviated as SAT, involves determining whether there exists an assignment of truth values to variables in a given Boolean formula such that the formula evaluates to true. 
